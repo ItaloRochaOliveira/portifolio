@@ -111,3 +111,65 @@ async function loadProjects() {
 
 // Inicializar quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', initApp);
+
+// Função para copiar email e mostrar mensagem
+function copyEmailToClipboard(email, event) {
+    navigator.clipboard.writeText(email).then(() => {
+        showEmailCopiedMessage(event);
+    }).catch(err => {
+        console.error('Erro ao copiar email:', err);
+        // Fallback para navegadores mais antigos
+        const textArea = document.createElement('textarea');
+        textArea.value = email;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        showEmailCopiedMessage(event);
+    });
+}
+
+function showEmailCopiedMessage(event) {
+    // Criar elemento de mensagem
+    const message = document.createElement('div');
+    message.textContent = 'Email copiado!';
+    message.style.cssText = `
+        position: fixed;
+        background: rgba(37, 99, 235, 0.9);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        z-index: 1000;
+        pointer-events: none;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transform: translate(-50%, -120%);
+        transition: all 0.3s ease;
+    `;
+    
+    // Posicionar próximo ao clique
+    const rect = event.target.getBoundingClientRect();
+    message.style.left = rect.left + (rect.width / 2) + 'px';
+    message.style.top = rect.top + 'px';
+    
+    document.body.appendChild(message);
+    
+    // Animar entrada
+    setTimeout(() => {
+        message.style.transform = 'translate(-50%, -140%)';
+        message.style.opacity = '1';
+    }, 10);
+    
+    // Remover mensagem após 2 segundos
+    setTimeout(() => {
+        message.style.opacity = '0';
+        message.style.transform = 'translate(-50%, -120%)';
+        setTimeout(() => {
+            if (document.body.contains(message)) {
+                document.body.removeChild(message);
+            }
+        }, 300);
+    }, 2000);
+}
