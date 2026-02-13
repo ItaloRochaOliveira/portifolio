@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Italo - Portfólio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1>Italo</h1>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projetos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contato</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Olá, sou Italo</h1>
+                    <p class="hero-subtitle">Desenvolvedor de Software</p>
+                    <p class="hero-description">
+                        Apaixonado por tecnologia e desenvolvimento de soluções inovadoras. 
+                        Especializado em criar aplicações web modernas e funcionais.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">Ver Projetos</a>
+                        <a href="#contact" class="btn btn-secondary">Entrar em Contato</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-img">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">Sobre Mim</h2>
+                <div class="about-content">
+                    <!-- Conteúdo será gerado dinamicamente pelo ProfileManager -->
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">Meus Projetos</h2>
+                <div class="carousel-container">
+                    <div class="carousel-wrapper">
+                        <button class="carousel-btn carousel-btn-prev" id="prevBtn">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="carousel" id="projects-carousel">
+                            <!-- Projetos serão carregados dinamicamente via JavaScript -->
+                        </div>
+                        <button class="carousel-btn carousel-btn-next" id="nextBtn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="carousel-indicators" id="carousel-indicators">
+                        <!-- Indicadores serão criados dinamicamente -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Entre em Contato</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Vamos conversar!</h3>
+                        <p>
+                            Estou sempre aberto a novas oportunidades e colaborações. 
+                            Sinta-se à vontade para me contatar através de qualquer uma das plataformas abaixo.
+                        </p>
+                        <div class="contact-links">
+                            <a href="https://github.com/ItaloRochaOliveira" target="_blank" class="contact-link">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://linkedin.com/in/italo" target="_blank" class="contact-link">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="mailto:italo@example.com" class="contact-link">
+                                <i class="fas fa-envelope"></i>
+                                <span>Email</span>
+                            </a>
+                            <a href="https://twitter.com/italo" target="_blank" class="contact-link">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Italo. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="utils/github-api.js"></script>
+    <script src="utils/profile.js"></script>
+    <script src="utils/project-card.js"></script>
+    <script src="utils/ui-effects.js"></script>
+    <script src="utils/carousel.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
