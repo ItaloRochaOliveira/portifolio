@@ -144,7 +144,7 @@ class UIEffects {
     // Smooth scroll para elementos
     smoothScrollTo(target, duration = 800) {
         
-        const targetElement = typeof target === 'string' ? 
+        const targetElement = typeof target === 'string' && target.trim() !== '' ? 
             document.querySelector(target) : target;
             
         if (!targetElement) {
