@@ -6,6 +6,7 @@
     <title>Italo - Portfólio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <header class="header">
@@ -47,7 +48,10 @@
                     </p>
                     <div class="hero-buttons">
                         <a href="#projects" class="btn btn-primary">Ver Projetos</a>
-                        <a href="#contact" class="btn btn-secondary">Entrar em Contato</a>
+                        <a href="#" class="btn btn-secondary" onclick="downloadCV(); return false;">
+                            <i class="fas fa-download"></i>
+                            Baixar Currículo
+                        </a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -100,6 +104,14 @@
                             Sinta-se à vontade para me contatar através de qualquer uma das plataformas abaixo.
                         </p>
                         <div class="contact-links">
+                            <a href="#" class="contact-link" onclick="downloadCV(); return false;">
+                                <i class="fas fa-download"></i>
+                                <span>Baixar Currículo</span>
+                            </a>
+                            <a href="https://wa.me/5562996839626" target="_blank" class="contact-link">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>WhatsApp</span>
+                            </a>
                             <a href="https://github.com/ItaloRochaOliveira" target="_blank" class="contact-link">
                                 <i class="fab fa-github"></i>
                                 <span>GitHub</span>
@@ -108,12 +120,35 @@
                                 <i class="fab fa-linkedin"></i>
                                 <span>LinkedIn</span>
                             </a>
-                            <a href="mailto:italo.rocha.de.oliveira@gmail.com" class="contact-link" onclick="copyEmailToClipboard('italo.rocha.de.oliveira@gmail.com', event); return false;">
+                            <a href="#" class="contact-link" onclick="copyEmailToClipboard(CONTACT_CONFIG.email, event); return false;">
                                 <i class="fas fa-envelope"></i>
                                 <span>Email</span>
                             </a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-form" class="contact-form-section">
+            <div class="container">
+                <h2 class="section-title">Envie uma mensagem</h2>
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -126,6 +161,8 @@
     </footer>
 
     <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="contact-config.js"></script>
     <script src="utils/github-api.js"></script>
     <script src="utils/profile.js"></script>
     <script src="utils/project-card.js"></script>
